@@ -1,1 +1,1 @@
-web: gunicorn <filename>:main
+web:gunicorn <filename>:main
