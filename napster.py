@@ -4,11 +4,11 @@ import json
 import sqlalchemy as db
 import pprint
 import random
-
-
+ 
+ 
 #gene= requests.get('http://api.napster.com/v2.2/genres?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
 #albs = requests.get('http://api.napster.com/v2.2/genres//albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4&limit=3').json()
-
+ 
 def short_to_id(shortcut):
     if shortcut == 'rock':
         return 'g.5'
@@ -52,28 +52,30 @@ def short_to_id(shortcut):
         return 'g.156'
     else:
         return 'sorry genre not available'
-
-
-
+ 
+ 
+#getting list of the top artist and album names per genre
 def get_albs(genre):
-    album_list= []
+    complete_list=[]
     albs = requests.get('http://api.napster.com/v2.2/genres/'+genre+'/albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
     for i in range(len(albs['albums'])):
-        album_list.append(albs['albums'][i]['name'])
-    return album_list
-
-
-#listing the shortcuts used in getting the top albums per genre 
+        complete_list.append([albs['albums'][i]['name'], albs['albums'][i]['artistName']])
+    return complete_list
+ 
+ 
+#listing the shortcuts used for the genres
 def list_genres(response):
     genre_list=[]
     for i in range(len(response['genres'])):
         genre_list.append(response['genres'][i]['shortcut'])
     return genre_list
-
+ 
+#getting a random album from the list we have generated
 def random_album(albums):
     the_one = random.choice(albums)
-    return the_one
-
+    print(the_one)
+ 
+#putting the info into a dataframe
 def album_dataframe(title):
     column_names = ['Album Titles']
     data= {'Album':[title]}
@@ -81,11 +83,11 @@ def album_dataframe(title):
     engine = db.create_engine('sqlite:///album_names.db')
     album_df.to_sql('data', con=engine, if_exists='replace', index=False)
     return pd.DataFrame(engine.execute("SELECT * FROM data;").fetchall(), columns = column_names)
-
+ 
 #genres= list_genres(gene)
 #print('list of genres available:')
 #print(genres)
-
+ 
 #genre= input('please enter a genre: ')
 #genre_id= short_to_id(genre)
 #albums= get_albs(genre_id)
