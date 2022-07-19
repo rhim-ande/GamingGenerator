@@ -32,6 +32,24 @@ def short_to_id(shortcut):
         return 'g.21'
     elif shortcut == 'soul-r-and-b':
         return 'g.194'
+    elif shortcut == 'new-age':
+        return 'g.453'
+    elif shortcut == 'reaggae':
+        return 'g.383'
+    elif shortcut == 'blues':
+        return 'g.438'
+    elif shortcut == 'christian-gospel':
+        return 'g.75'
+    elif shortcut == 'folk':
+        return 'g.446'
+    elif shortcut == 'children':
+        return 'g.470'
+    elif shortcut == 'vocal-easy-listening':
+        return 'g.69'
+    elif shortcut == 'soundtracks-musicals':
+        return 'g.246'
+    elif shortcut == 'comedy-spoken-word':
+        return 'g.156'
     else:
         return 'sorry genre not available'
 
