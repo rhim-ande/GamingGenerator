@@ -2,16 +2,21 @@
 {% block content %}
     <h1 class="center">Here is an album to listen to:</h1> 
     <h2>{{ subtitle }}</h2>
+    <h2>{{ album }}</h2>
     <h1 class="center">Here are three possible games to play:</h1>
+    <h2>{{ game1 }}</h2>
+    <h2>{{ game2 }}</h2>
+    <h2>{{ game3 }}</h2>
+
     <div class="center">
         <div class="container-fluid">
-            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">
+            <img src= {{ img1 }} width="300px" height="300px">
         </div>
         <div class="container-fluid">
-            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">
+            <img src={{ img2 }} width="300px" height="300px">
         </div>
         <div class="container-fluid">
-            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">    
+            <img src= {{ img3 }} width="300px" height="300px">    
         </div>
         </div>
     <h2>{{ subtitle2 }}</h2>

@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm, GameForm
 from flask_behind_proxy import FlaskBehindProxy
 from flask_sqlalchemy import SQLAlchemy
+from games import get_games
+from napster import short_to_id, get_albs, list_genres, random_album, album_dataframe
 
 app = Flask(__name__)
 proxied = FlaskBehindProxy(app)  ## add this line
@@ -57,9 +59,11 @@ def get_game():
 @app.route("/results", methods=['GET', 'POST'])
 def results():
     form = GameForm()
-    return render_template('results.html', title='Results')
-
-
+    id_number = short_to_id(form.music_genre.data)
+    album_list = get_albs(id_number)
+    album = random_album(album_list)
+    games = get_games(form.game_genre.data)
+    return render_template('results.html', game1 = f'{games[0][0]}', game2 = f'{games[1][0]}', game3 = f'{games[2][0]}', img1 = f'{games[0][1]}', img2 = f'{games[1][1]}',img3 = f'{games[2][1]}', album = f'{album}', title='Results')
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")

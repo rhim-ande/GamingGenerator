@@ -6,7 +6,7 @@ import pprint
 import random
 
 
-gene= requests.get('http://api.napster.com/v2.2/genres?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
+#gene= requests.get('http://api.napster.com/v2.2/genres?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
 #albs = requests.get('http://api.napster.com/v2.2/genres//albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4&limit=3').json()
 
 def short_to_id(shortcut):
@@ -64,12 +64,12 @@ def album_dataframe(title):
     album_df.to_sql('data', con=engine, if_exists='replace', index=False)
     return pd.DataFrame(engine.execute("SELECT * FROM data;").fetchall(), columns = column_names)
 
-genres= list_genres(gene)
-print('list of genres available:')
-print(genres)
+#genres= list_genres(gene)
+#print('list of genres available:')
+#print(genres)
 
-genre= input('please enter a genre: ')
-genre_id= short_to_id(genre)
-albums= get_albs(genre_id)
-al= random_album(albums)
-print(album_dataframe(al))
+#genre= input('please enter a genre: ')
+#genre_id= short_to_id(genre)
+#albums= get_albs(genre_id)
+#al= random_album(albums)
+#print(album_dataframe(al))
