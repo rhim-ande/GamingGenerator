@@ -1,23 +1,24 @@
-{% extends "layout.html" %}
-{% block content %}
-    <h1 class="center">Here is an album to listen to:</h1> 
-    <h2>{{ subtitle }}</h2>
-    <h2>{{ album }}</h2>
-    <h1 class="center">Here are three possible games to play:</h1>
-    <h2>{{ game1 }}</h2>
-    <h2>{{ game2 }}</h2>
-    <h2>{{ game3 }}</h2>
-
-    <div class="center">
-        <div class="container-fluid">
-            <img src= {{ img1 }} width="300px" height="300px">
-        </div>
-        <div class="container-fluid">
-            <img src={{ img2 }} width="300px" height="300px">
-        </div>
-        <div class="container-fluid">
-            <img src= {{ img3 }} width="300px" height="300px">    
-        </div>
-        </div>
-    <h2>{{ subtitle2 }}</h2>
-{% endblock content %}
+{% extends "layout.html" %} {% block content %} <h2 class="center">Here is an album to listen to:</h2>
+<h2>{{ album }}</h2>
+<h2 class="center">Here are three possible games to play:</h2>
+<figure>
+    <a href={{ link1 }}>
+        <img src={{ img1 }} width="320px" height="200px">
+        <figcaption class="caption">{{ game1 }}</figcaption>
+    </a>
+    <figcaption class="caption">{{ d1 }}</figcaption>
+</figure>
+<figure>
+    <a href={{ link2 }}>
+        <img src={{ img2 }} width="320px" height="200px">
+        <figcaption class="caption">{{ game2 }}</figcaption>
+    </a>
+    <figcaption class="caption">{{ d2 }}</figcaption>
+</figure>
+<figure>
+    <a href={{ link3 }}>
+        <img src={{ img3 }} width="320px" height="200px">
+        <figcaption class="caption">{{ game3 }}</figcaption>
+    </a>
+    <figcaption class="caption">{{ d3 }}</figcaption>
+</figure> {% endblock content %}

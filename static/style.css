@@ -13,6 +13,28 @@ body {
   height: 0;
 }
 
+.text-with-img{
+   text-align: justify;
+   width: 300px;
+}
+
+.caption {
+    display: block;
+}
+
+figure {
+    display: inline-block;
+    margin: 20px 50px 50px 20px;
+}
+figure img {
+    vertical-align: top;
+    margin: auto;
+}
+figure figcaption {
+    text-align: center;
+    width: 320px;
+}
+
 img {
   float: left;
   border-width: 3px;
