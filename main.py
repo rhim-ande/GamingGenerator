@@ -56,6 +56,7 @@ def get_game():
 
 @app.route("/results", methods=['GET', 'POST'])
 def results():
+    form = GameForm()
     return render_template('results.html', title='Results')
 
 

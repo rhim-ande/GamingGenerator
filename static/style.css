@@ -4,11 +4,39 @@ body {
   margin-top: 5rem;
 }
 
+.fix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+img {
+  float: left;
+  border-width: 3px;
+  border-color:#333333;
+  border-style: solid;
+  margin: 10px 50px 50px 10px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
+  text-align: left;
+  margin:20px;
+}
+
+.btn-primary{
+  background-color:#006D5B;
+}
+
+.padding_50{
+  padding: 20px 50px;
+}
+
+.center {
   text-align: center;
-  margin:2000;
-  padding:2000;
 }
 
 .bg-steel {

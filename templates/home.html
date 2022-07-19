@@ -1,8 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>Welcome to the Gaming Generator</h2>
-    <p>Are you bored? Do you love games? Do you love music? This is the place for you!</p>
-    <p>If you are having trouble finding games or music that align with your tastes, please allow us to help!</p>
-    <p>create an account to save a collection of your played games</p>
-    <p>Sign up Below!</p>
+    <h2 class="center">Welcome to the Gaming Generator!</h2>
+    <div class="fix">
+        <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="250px" height="250px">
+        <p>Are you bored? Do you love games? Do you love music? This is the place for you!</p>
+        <p>If you are having trouble finding games or music that align with your tastes, please allow us to help!</p>
+        <p>create an account to save a collection of your played games</p>
+        <p>Sign up Below!</p>
+    </div>
+
+    <div class="center">
+        <button type="submit" class="btn btn-primary padding_50">Sign Up!</button>
+    </div>
+    
 {% endblock content %}

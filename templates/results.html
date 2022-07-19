@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Here is an album to listen to:</h1> 
-    <h1>Here are three possible games to play:</h1>
+    <h1 class="center">Here is an album to listen to:</h1> 
+    <h2>{{ subtitle }}</h2>
+    <h1 class="center">Here are three possible games to play:</h1>
+    <div class="center">
+        <div class="container-fluid">
+            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">
+        </div>
+        <div class="container-fluid">
+            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">
+        </div>
+        <div class="container-fluid">
+            <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="300px" height="300px">    
+        </div>
+        </div>
+    <h2>{{ subtitle2 }}</h2>
 {% endblock content %}
