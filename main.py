@@ -27,6 +27,10 @@ class User(db.Model):
 def home():
     return render_template('home.html')
 
+@app.route("/myaccount", methods=['GET', 'POST'])
+def myaccount():
+    return render_template('myaccount.html')
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Input Your Preferences!</h1>
+    <h1 class="center">Input Your Preferences!</h1>
     <div class="content-section">
         <form method="POST" action="{{ url_for('results') }}">
             <fieldset class="form-group">
@@ -13,8 +13,8 @@
                     {{ form.music_genre(class="form-control form-control-lg") }}
                 </div>
             </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+            <div class="form-group center">
+                {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
     </div>

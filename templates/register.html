@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Register</h1>
+    <h1 class="center">Register</h1>
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -20,9 +20,12 @@
                         <div class="invalid-feedback"> {% for error in form.confirm_password.errors%} <span>{{error}}</span> {% endfor %} </div> {% else %} {{ form.confirm_password(class="form-control form-control-lg") }} {% endif %}
                     </div>
             </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+            <div class="form-group center">
+                {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
+        <div class="center">
+            <button type="submit" class="btn btn-primary padding_50" onclick="location.href='login'">Already have an account? Log in Here!</button>
+        </div>
     </div>
 {% endblock content %}

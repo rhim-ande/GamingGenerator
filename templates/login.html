@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Login!</h1>
+    <h1 class="center">Login!</h1>
     <div class="content-section">
-        <form method="POST" action="">
+        <form method="POST" action="{{ url_for('myaccount') }}">
             <fieldset class="form-group">
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}
@@ -13,8 +13,8 @@
                     {{ form.password(class="form-control form-control-lg") }}
                 </div>
             </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+            <div class="form-group center">
+                {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
     </div>
