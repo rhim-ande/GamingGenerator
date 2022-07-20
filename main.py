@@ -3,10 +3,10 @@ from forms import RegistrationForm, LoginForm, GameForm
 from flask_behind_proxy import FlaskBehindProxy
 from flask_sqlalchemy import SQLAlchemy
 from games import get_games
-from napster import short_to_id, get_albs, list_genres, random_album, album_dataframe
+from napster import short_to_id, get_albs, random_album
 
 app = Flask(__name__)
-proxied = FlaskBehindProxy(app)  ## add this line
+proxied = FlaskBehindProxy(app) 
 
 app.config['SECRET_KEY'] = '78de1af656d14fd39ee8e9ca98fd5989'
 
@@ -27,6 +27,10 @@ class User(db.Model):
 def home():
     return render_template('home.html')
 
+@app.route("/myaccount", methods=['GET', 'POST'])
+def myaccount():
+    return render_template('myaccount.html')
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -41,7 +45,7 @@ def register():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit(): # checks if entries are valid
+    if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         #pw = #query for password
         #check user is in database and password correct 
