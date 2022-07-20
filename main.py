@@ -67,7 +67,7 @@ def results():
     album_list = get_albs(id_number)
     album = random_album(album_list)
     games = get_games(form.game_genre.data)
-    return render_template('results.html', d1=f'{games[0][2]}', d2=f'{games[1][2]}', d3=f'{games[2][2]}',link1=f'{games[0][3]}', link2=f'{games[1][3]}', link3=f'{games[2][3]}', game1 = f'{games[0][0]}', game2 = f'{games[1][0]}', game3 = f'{games[2][0]}', img1 = f'{games[0][1]}', img2 = f'{games[1][1]}',img3 = f'{games[2][1]}', album = f'{album}', title='Results')
+    return render_template('results.html', d1=f'{games[0][2]}', d2=f'{games[1][2]}', d3=f'{games[2][2]}',link1=f'{games[0][3]}', link2=f'{games[1][3]}', link3=f'{games[2][3]}', game1 = f'{games[0][0]}', game2 = f'{games[1][0]}', game3 = f'{games[2][0]}', img1 = f'{games[0][1]}', img2 = f'{games[1][1]}',img3 = f'{games[2][1]}', albumName = f'{album[0]}', albumArtist = f'{album[1]}', title='Results')
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
