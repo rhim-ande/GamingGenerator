@@ -3,24 +3,53 @@
 <h2 class="center"><b>{{ albumName }} by: {{ albumArtist }}</b></h2>
 <h2 class="center">Here are three games to choose from:</h2>
 <div class="col-container">
-<figure class="col">
-    <a href={{ link1 }}>
-        <img src={{ img1 }} width="320px" height="200px">
-        <figcaption class="caption"><b>{{ game1 }}</b></figcaption>
-    </a>
-    <figcaption class="caption">{{ d1 }}</figcaption>
-</figure>
-<figure class="col">
-    <a href={{ link2 }}>
-        <img src={{ img2 }} width="320px" height="200px">
-        <figcaption class="caption"><b>{{ game2 }}</b></figcaption>
-    </a>
-    <figcaption class="caption">{{ d2 }}</figcaption>
-</figure>
-<figure class="col">
-    <a href={{ link3 }}>
-        <img src={{ img3 }} width="320px" height="200px">
-        <figcaption class="caption"><b>{{ game3 }}</b></figcaption>
-    </a>
-    <figcaption class="caption">{{ d3 }}</figcaption>
-</figure> {% endblock content %}
+
+    {% if showLink1 == "True" %}
+        <figure class="col">
+            <a href="{{ url_for('get_url_game', variable=', '.join([game1, img1, d1, link1, '1'])) }}"  target="_blank">
+                <img src={{ img1 }} width="320px" height="200px">
+                <figcaption class="caption"><b>{{ game1 }}</b></figcaption>
+            </a>
+            <figcaption class="caption">{{ d1 }}</figcaption>
+        </figure>
+    {% else %}
+        <figure class="col">
+            <img src={{ img1 }} width="320px" height="200px">
+            <figcaption class="caption"><b>{{ game1 }}</b></figcaption>
+            <figcaption class="caption">{{ d1 }}</figcaption>
+        </figure>
+    {% endif %}
+
+    {% if showLink2 == "True" %}
+        <figure class="col">
+            <a href="{{ url_for('get_url_game', variable=', '.join([game2, img2, d2, link2, '2'])) }}"  target="_blank">
+                <img src={{ img2 }} width="320px" height="200px">
+                <figcaption class="caption"><b>{{ game2 }}</b></figcaption>
+            </a>
+            <figcaption class="caption">{{ d2 }}</figcaption>
+        </figure>
+    {% else %}
+        <figure class="col">
+            <img src={{ img2 }} width="320px" height="200px">
+            <figcaption class="caption"><b>{{ game2 }}</b></figcaption>
+            <figcaption class="caption">{{ d2 }}</figcaption>
+        </figure>
+    {% endif %}
+
+    {% if showLink3 == "True" %}
+        <figure class="col">
+            <a href="{{ url_for('get_url_game', variable=', '.join([game3, img3, d3, link3, '3'])) }}"  target="_blank">
+                <img src={{ img3 }} width="320px" height="200px">
+                <figcaption class="caption"><b>{{ game3 }}</b></figcaption>
+            </a>
+            <figcaption class="caption">{{ d3 }}</figcaption>
+        </figure>
+    {% else %}
+        <figure class="col">
+            <img src={{ img3 }} width="320px" height="200px">
+            <figcaption class="caption"><b>{{ game3 }}</b></figcaption>
+            <figcaption class="caption">{{ d3 }}</figcaption>
+        </figure>
+    {% endif %}
+
+{% endblock content %}

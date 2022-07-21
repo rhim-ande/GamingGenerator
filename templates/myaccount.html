@@ -1,25 +1,31 @@
 {% extends "layout.html" %} {% block content %} 
 <h2 class="center">Here is your game history:</b></h2>
 <div class="col-container">
+{% if current_user.has_game1() %}
 <figure class="col">
-    <a href={{ link1 }}>
+    <a href={{ link1 }} target="_blank">
         <img src={{ img1 }} width="320px" height="200px">
         <figcaption class="caption"><b>{{ game1 }}</b></figcaption>
     </a>
     <figcaption class="caption">{{ d1 }}</figcaption>
 </figure>
+{% endif %}
+{% if current_user.has_game2() %}
 <figure class="col">
-    <a href={{ link2 }}>
+    <a href={{ link2 }} target="_blank">
         <img src={{ img2 }} width="320px" height="200px">
         <figcaption class="caption"><b>{{ game2 }}</b></figcaption>
     </a>
     <figcaption class="caption">{{ d2 }}</figcaption>
 </figure>
+{% endif %}
+{% if current_user.has_game3() %}
 <figure class="col">
-    <a href={{ link3 }}>
+    <a href={{ link3 }} target="_blank">
         <img src={{ img3 }} width="320px" height="200px">
         <figcaption class="caption"><b>{{ game3 }}</b></figcaption>
     </a>
     <figcaption class="caption">{{ d3 }}</figcaption>
 </figure>
+{% endif %}
 {% endblock content %}
