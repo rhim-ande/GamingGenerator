@@ -2,24 +2,24 @@
 <h2 class="center">Here is your game history:</b></h2>
 <div class="col-container">
 <figure class="col">
-    <a href="{{ url_for('static', filename='JPEG_example_flower.jpg') }}">
-        <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="320px" height="200px">
-        <figcaption class="caption"><b>Game 1</b></figcaption>
+    <a href={{ link1 }}>
+        <img src={{ img1 }} width="320px" height="200px">
+        <figcaption class="caption"><b>{{ game1 }}</b></figcaption>
     </a>
-    <figcaption class="caption">description of game 1</figcaption>
+    <figcaption class="caption">{{ d1 }}</figcaption>
 </figure>
 <figure class="col">
-    <a href="{{ url_for('static', filename='JPEG_example_flower.jpg') }}">
-        <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="320px" height="200px">
-        <figcaption class="caption"><b>Game 2</b></figcaption>
+    <a href={{ link2 }}>
+        <img src={{ img2 }} width="320px" height="200px">
+        <figcaption class="caption"><b>{{ game2 }}</b></figcaption>
     </a>
-    <figcaption class="caption">descirption of game 2</figcaption>
+    <figcaption class="caption">{{ d2 }}</figcaption>
 </figure>
 <figure class="col">
-    <a href="{{ url_for('static', filename='JPEG_example_flower.jpg') }}">
-        <img src="{{ url_for('static', filename='JPEG_example_flower.jpg') }}" width="320px" height="200px">
-        <figcaption class="caption"><b>Game 3</b></figcaption>
+    <a href={{ link3 }}>
+        <img src={{ img3 }} width="320px" height="200px">
+        <figcaption class="caption"><b>{{ game3 }}</b></figcaption>
     </a>
-    <figcaption class="caption">description of game 3</figcaption>
-</figure> 
+    <figcaption class="caption">{{ d3 }}</figcaption>
+</figure>
 {% endblock content %}

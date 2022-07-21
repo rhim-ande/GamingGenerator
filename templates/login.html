@@ -2,7 +2,8 @@
 {% block content %}
     <h1 class="center">Login!</h1>
     <div class="content-section">
-        <form method="POST" action="{{ url_for('myaccount') }}">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}

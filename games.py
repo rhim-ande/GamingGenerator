@@ -18,7 +18,6 @@ def get_games(genre):
 
 
 
-
      
 
 
