@@ -10,12 +10,12 @@ def get_games(genre):
     for game in games_data:
         total_games.append([game['title'], game['thumbnail'], game['short_description'], game['game_url']])
 
-    '''results = random.choices(total_games, k=3)
+    results = random.choices(total_games, k=3)
     for game in results:
         if results.count(game) > 1:
-            game = random.choice(total_games)'''
+            game = random.choice(total_games)
 
-    return random.choices(total_games, k=3)
+    return results
 
 
 

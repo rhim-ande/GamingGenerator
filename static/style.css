@@ -59,8 +59,9 @@ figure {
 
 figure img {
     vertical-align: top;
-    border: 3px solid #006D5B;
+    border: 3px solid #4e29a5;
 }
+
 figure figcaption {
     text-align: center;
     width: 320px;
@@ -69,10 +70,10 @@ figure figcaption {
 
 a figcaption { 
     font-size:30px;
-    background-color: #54c4b1;
+    background-color: #9b75f1;
     color:white;
     vertical-align:top;
-    border: solid 3px #006D5B;
+    border: solid 3px #4e29a5;
 }
 
 img {
@@ -93,12 +94,12 @@ button{
 }
 
 .btn-primary{
-  background-color:#006D5B;
+  background-color:#4e29a5;
   padding: 15px 40px;
 }
 
 .btn-primary:hover{
-  background-color:#54c4b1;
+  background-color:#9b75f1;
 }
 
 .center {
@@ -106,7 +107,7 @@ button{
 }
 
 .bg-steel {
-  background-color: #006D5B;
+  background-color: #4e29a5;
 }
 
 .navbar-nav {
