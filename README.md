@@ -1,5 +1,5 @@
 # GamingGenerator
-> A websebite used to generate a random list of free to play based on genre,
+> A website used to generate a random list of 3 free to play games based on genre,
 > as well as generate one album based on a list of the top albums per genre
 ## This website is made using the napster and freetogame api's
 * As napster is used with the genre top albums endpoint
