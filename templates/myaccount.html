@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block content %} 
-<h2 class="center">Here is your game history:</b></h2>
+<h1 class="center">{{ name }}'s Game History:</b></h1>
 <div class="col-container">
 {% if current_user.has_game1() %}
 <figure class="col">

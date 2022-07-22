@@ -100,14 +100,14 @@ def myaccount():
         game3_info = user_games.game3.split(', ')
         game2_info = user_games.game2.split(', ')
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', d1=f'{game1_info[2]}', d2=f'{game2_info[2]}', d3=f'{game3_info[2]}',link1=f'{game1_info[3]}', link2=f'{game2_info[3]}', link3=f'{game3_info[3]}', game1 = f'{game1_info[0]}', game2 = f'{game2_info[0]}', game3 = f'{game3_info[0]}', img1 = f'{game1_info[1]}', img2 = f'{game2_info[1]}', img3 = f'{game3_info[1]}', title='Results')
+        return render_template('myaccount.html', name=current_user.username, d1=f'{game1_info[2]}', d2=f'{game2_info[2]}', d3=f'{game3_info[2]}',link1=f'{game1_info[3]}', link2=f'{game2_info[3]}', link3=f'{game3_info[3]}', game1 = f'{game1_info[0]}', game2 = f'{game2_info[0]}', game3 = f'{game3_info[0]}', img1 = f'{game1_info[1]}', img2 = f'{game2_info[1]}', img3 = f'{game3_info[1]}', title='Results')
     if user_games.game2 != " ": 
         game2_info = user_games.game2.split(', ')
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', d1=f'{game1_info[2]}', d2=f'{game2_info[2]}',link1=f'{game1_info[3]}', link2=f'{game2_info[3]}', game1 = f'{game1_info[0]}', game2 = f'{game2_info[0]}', img1 = f'{game1_info[1]}', img2 = f'{game2_info[1]}', title='Results')
+        return render_template('myaccount.html', name=current_user.username,  d1=f'{game1_info[2]}', d2=f'{game2_info[2]}',link1=f'{game1_info[3]}', link2=f'{game2_info[3]}', game1 = f'{game1_info[0]}', game2 = f'{game2_info[0]}', img1 = f'{game1_info[1]}', img2 = f'{game2_info[1]}', title='Results')
     if user_games.game1 != " ": 
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', d1=f'{game1_info[2]}', link1=f'{game1_info[3]}', game1 = f'{game1_info[0]}', img1 = f'{game1_info[1]}', title='Results')
+        return render_template('myaccount.html', name=current_user.username, d1=f'{game1_info[2]}', link1=f'{game1_info[3]}', game1 = f'{game1_info[0]}', img1 = f'{game1_info[1]}', title='Results')
     return render_template('myaccount.html')
 
 @app.route("/logout", methods=['GET', 'POST'])
@@ -140,7 +140,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if not user or not check_password_hash(user.password, form.password.data):
-           flash('Username or password incorrect, please try again.')
+           flash('Username or password incorrect, please try again.', 'error')
            return redirect(url_for('login'))
         flash(f'Successful login {form.username.data}!', 'success')
         login_user(user, remember=True)
@@ -163,12 +163,6 @@ def results():
     response1 = requests.get(games[0][3])
     response2 = requests.get(games[1][3])
     response3 = requests.get(games[2][3])
-    #print("Response1: " + str(response1.status_code))
-    #print("Url1: " + games[0][3])
-    #print("Response2: " + str(response2.status_code))
-    #print("Url2: " + games[1][3])
-    #print("Response3: " + str(response3.status_code))
-    #print("Url3: " + games[2][3])
     showLink1 = "True" if response1.status_code != 404 else "False"
     showLink2 = "True" if response2.status_code != 404 else "False"
     showLink3 = "True" if response3.status_code != 404 else "False"
