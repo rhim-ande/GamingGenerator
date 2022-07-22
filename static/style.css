@@ -32,7 +32,7 @@ input[type="text"], input[type="password"], input[type="select"], textarea {
 
 
 p {
-  color: black;
+  color: rgb(239, 230, 248);
   margin:20px;
   padding: 50px;
   background: rgb(86, 64, 151);
