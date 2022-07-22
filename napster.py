@@ -50,12 +50,11 @@ def short_to_id(shortcut):
  
 #getting list of the top artist and album names per genre
 def get_albs(genre):
-    complete_list=[]
+    complete_list = []
     albs = requests.get('http://api.napster.com/v2.2/genres/'+genre+'/albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
     for i in range(len(albs['albums'])):
         complete_list.append([albs['albums'][i]['name'], albs['albums'][i]['artistName']])
     return complete_list
-
 
 #getting a random album from the list we have generated
 def random_album(albums):
