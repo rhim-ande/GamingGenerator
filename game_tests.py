@@ -6,6 +6,6 @@ class TestGames(unittest.TestCase):
         self.assertEqual(type(get_games(horror)), type([]))
         self.assertEqual(len(get_games(horror)), 3)
 
+
 if __name__ == '__main__':
     unittest.main()
-    
