@@ -15,6 +15,6 @@ def get_games(genre):
     results = random.choices(total_games, k=3)
     for game in results:
         if results.count(game) > 1:
-            game = random.choice(total_games)
+            game = random.choice(total_games.delete(game))
 
     return results
