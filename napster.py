@@ -1,9 +1,10 @@
 import requests
 import json
 import random
- 
+
 
 def short_to_id(shortcut):
+    '''take in a genre name and returns the equivalent genre code'''
     if shortcut == 'rock':
         return 'g.5'
     elif shortcut == 'pop':
@@ -46,17 +47,21 @@ def short_to_id(shortcut):
         return 'g.156'
     else:
         return 'sorry genre not available'
- 
- 
-#getting list of the top artist and album names per genre
+
+
 def get_albs(genre):
+    '''getting list of the top artist and album names per genre'''
     complete_list = []
-    albs = requests.get('http://api.napster.com/v2.2/genres/'+genre+'/albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5LTlhZGItOTA1MjVlNTg5NDE4').json()
+    albs = requests.get('http://api.napster.com/v2.2/genres/' + genre +
+                        '/albums/top?apikey=Zjk1NzYyNGEtMDVjNi00MGI5L' +
+                        'TlhZGItOTA1MjVlNTg5NDE4').json()
     for i in range(len(albs['albums'])):
-        complete_list.append([albs['albums'][i]['name'], albs['albums'][i]['artistName']])
+        complete_list.append([albs['albums'][i]['name'],
+                             albs['albums'][i]['artistName']])
     return complete_list
 
-#getting a random album from the list we have generated
+
 def random_album(albums):
+    '''getting a random album from the list we have generated'''
     the_one = random.choice(albums)
     return the_one

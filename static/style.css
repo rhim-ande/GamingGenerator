@@ -8,6 +8,16 @@ fieldset{
   margin:20px;
 }
 
+.alert-error{
+  color: rgb(239, 230, 248);
+}
+
+.alert-success{
+  background-color:rgb(133, 215, 248);
+  color: #444444
+}
+
+
 input[type="text"], input[type="password"], input[type="select"], textarea {
   background-color : #9b75f1; 
 }
