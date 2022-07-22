@@ -110,7 +110,7 @@ def myaccount():
         game3_info = user_games.game3.split(', ')
         game2_info = user_games.game2.split(', ')
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', name=current_user.username,
+        return render_template('myaccount.html',
                                d1=f'{game1_info[2]}', d2=f'{game2_info[2]}',
                                d3=f'{game3_info[2]}', link1=f'{game1_info[3]}',
                                link2=f'{game2_info[3]}',
@@ -125,7 +125,7 @@ def myaccount():
     if user_games.game2 != " ":
         game2_info = user_games.game2.split(', ')
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', name=current_user.username,
+        return render_template('myaccount.html',
                                d1=f'{game1_info[2]}', d2=f'{game2_info[2]}',
                                link1=f'{game1_info[3]}',
                                link2=f'{game2_info[3]}',
@@ -136,7 +136,7 @@ def myaccount():
                                title='Results')
     if user_games.game1 != " ":
         game1_info = user_games.game1.split(', ')
-        return render_template('myaccount.html', name=current_user.username,
+        return render_template('myaccount.html',
                                d1=f'{game1_info[2]}',
                                link1=f'{game1_info[3]}',
                                game1=f'{game1_info[0]}',
