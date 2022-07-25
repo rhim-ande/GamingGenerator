@@ -4,30 +4,8 @@ body {
   margin-top: 5rem;
 }
 
-fieldset{
+fieldset {
   margin:20px;
-}
-
-.alert-error{
-  color: rgb(239, 230, 248);
-}
-
-.alert-success{
-  background-color:rgb(133, 215, 248);
-  color: #444444
-}
-
-
-input[type="text"], input[type="password"], input[type="select"], textarea {
-  background-color : #9b75f1; 
-}
-
-.form-control-label{
-  color: rgb(239, 230, 248);
-}
-
-.form-control{
-  background-color:  #9b75f1; ;
 }
 
 
@@ -39,6 +17,27 @@ p {
   border-radius: 25px;
   font-size:20px;
   box-shadow: 5px 5px 10px 2px rgba(4, 1, 5, 0.8);
+}
+
+input[type="text"], input[type="password"], input[type="select"], textarea {
+  background-color : #9b75f1; 
+}
+
+.alert-error {
+  color: rgb(239, 230, 248);
+}
+
+.alert-success {
+  background-color:rgb(133, 215, 248);
+  color: #444444
+}
+
+.form-control-label {
+  color: rgb(239, 230, 248);
+}
+
+.form-control{
+  background-color:  #9b75f1; ;
 }
 
 .fix{
@@ -107,7 +106,6 @@ a figcaption {
 
 img {
   float: left;
-  background-color: ;
 }
 
 h1, h2, h3, h4, h5, h6 {
