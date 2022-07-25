@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = '78de1af656d14fd39ee8e9ca98fd5989'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
-#initialize login manager for registration and login
+# initialize login manager for registration and login
 login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.init_app(app)
@@ -30,7 +30,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String, nullable=False)
 
     def has_game1(self):
-        '''check that a user has a game in the game1 section of database'''
+        # check that a user has a game in the game1 section of database
         user_games = Games.query.filter_by(username=self.username).first()
         game1_info = user_games.game1.split(', ')
         if user_games.game1 is " ":
@@ -38,7 +38,7 @@ class User(UserMixin, db.Model):
         return True
 
     def has_game2(self):
-        '''check that a user has a game in the game2 section of database'''
+        # check that a user has a game in the game2 section of database
         user_games = Games.query.filter_by(username=self.username).first()
         game2_info = user_games.game2.split(', ')
         if user_games.game2 == " ":
@@ -46,7 +46,7 @@ class User(UserMixin, db.Model):
         return True
 
     def has_game3(self):
-        '''check that a user has a game in the game3 section of database'''
+        # check that a user has a game in the game3 section of database
         user_games = Games.query.filter_by(username=self.username).first()
         game3_info = user_games.game3.split(', ')
         if user_games.game3 == " ":
@@ -71,7 +71,7 @@ class Games(db.Model):
 @app.route("/get_url_game", methods=['GET', 'POST'])
 @login_required
 def get_url_game():
-    '''get url to send user to gaming site'''
+    # get url to send user to gaming site
     variable = request.args.get('variable')
     variable = variable.split(', ')
 
@@ -110,7 +110,7 @@ def home():
 @app.route("/myaccount", methods=['GET', 'POST'])
 @login_required
 def myaccount():
-    '''myaccount page to display user history'''
+    # myaccount page to display user history
     user_games = Games.query.filter_by(username=current_user.username).first()
     if user_games.game3 != " ":
         game3_info = user_games.game3.split(', ')
@@ -205,14 +205,14 @@ def get_game():
 
 @app.route("/results", methods=['GET', 'POST'])
 def results():
-    '''page to show results of user choices'''
+    # page to show results of user choices
     form = GameForm()
     id_number = short_to_id(form.music_genre.data)
     album_list = get_albs(id_number)
     album = random_album(album_list)
     games = get_games(form.game_genre.data)
 
-    #attempt to check status code of get request and take out bad links
+    # attempt to check status code of get request and take out bad links
     response1 = requests.get(games[0][3])
     response2 = requests.get(games[1][3])
     response3 = requests.get(games[2][3])
@@ -236,6 +236,7 @@ def results():
                            albumName=f'{album[0]}',
                            albumArtist=f'{album[1]}',
                            title='Results')
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
